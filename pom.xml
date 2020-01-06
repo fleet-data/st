@@ -14,25 +14,57 @@
         <finalName>st</finalName>
         <plugins>
             <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.1.0</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
                 <executions>
                     <execution>
-                        <id>copy-resources</id>
-                        <!-- here the phase you need -->
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
+                        <id>suitetalk-proxy</id>
+                        <phase>clean</phase>
                         <configuration>
-                            <outputDirectory>${project.build.directory}</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>com/netsuite</directory>
-                                    <filtering>true</filtering>
-                                </resource>
-                            </resources>
+                            <file>${basedir}/lib/com/netsuite/suitetalk-axis-proxy-v2019_1-1.0.0.jar</file>
+                            <repositoryLayout>default</repositoryLayout>
+                            <groupId>com.netsuite.suitetalk.proxy.v2019_1</groupId>
+                            <artifactId>suitetalk-axis-proxy-v2019_1</artifactId>
+                            <version>1.0.0</version>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
                         </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>suitetalk-client</id>
+                        <phase>clean</phase>
+                        <configuration>
+                            <file>${basedir}/lib/com/netsuite/suitetalk-client-v2019_1-2.0.0.jar</file>
+                            <repositoryLayout>default</repositoryLayout>
+                            <groupId>com.netsuite.suitetalk.client.v2019_1</groupId>
+                            <artifactId>suitetalk-client-v2019_1</artifactId>
+                            <version>2.0.0</version>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>suitetalk-client-common</id>
+                        <phase>clean</phase>
+                        <configuration>
+                            <file>${basedir}/lib/com/netsuite/suitetalk-client-common-1.0.0.jar</file>
+                            <repositoryLayout>default</repositoryLayout>
+                            <groupId>com.netsuite.suitetalk.client.common</groupId>
+                            <artifactId>suitetalk-client-common</artifactId>
+                            <version>1.0.0</version>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
