@@ -28,7 +28,7 @@
                             <outputDirectory>${project.build.directory}</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>com/**/*</directory>
+                                    <directory>com/netsuite</directory>
                                     <filtering>true</filtering>
                                 </resource>
                             </resources>
